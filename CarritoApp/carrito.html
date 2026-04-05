@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Virtual | Carrito</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Tienda Virtual</div>
+    <nav class="nav">
+      <a href="index.html">Productos</a>
+      <a href="carrito.html" class="active">Carrito</a>
+      <a href="#">Ofertas</a>
+    </nav>
+  </header>
+
+  <main class="page cart-page">
+    <section class="section-title">
+      <h1>Tu carrito</h1>
+      <p>Aquí se mostrarán los productos agregados al carrito.</p>
+    </section>
+
+    <section class="cart-layout">
+      <div class="carrito-lista" id="contenedor-carrito">
+        <!-- Aquí se insertan los productos del carrito con JS -->
+      </div>
+
+      <aside class="resumen-box">
+        <h2>Resumen</h2>
+        <div class="resumen-linea">
+          <span>Subtotal</span>
+          <span id="subtotal">$0</span>
+        </div>
+        <div class="resumen-linea">
+          <span>Descuento</span>
+          <span id="descuento">$0</span>
+        </div>
+        <div class="resumen-linea total-linea">
+          <span>Total</span>
+          <span id="total">$0</span>
+        </div>
+        <button class="btn btn-success full">Finalizar compra</button>
+        <a href="index.html" class="btn btn-secondary full">Seguir comprando</a>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../CarritoApp/JS/controllers.js"></script>
+  <script src="../CarritoApp/JS/services.js"></script>
+  <script src="../CarritoApp/JS/repository.js"></script>
+</body>
+</html>
