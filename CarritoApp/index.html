@@ -1,45 +1,43 @@
 <!doctype html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda Virtual | Productos</title>
-    <link rel="stylesheet" href="../CarritoApp/styles/styles.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="../CarritoApp/styles/styles.css">
+</head>
+<body>
     <header class="header">
-      <div class="logo">Tienda Virtual</div>
-      <nav class="nav">
-        <a href="index.html" class="active">Productos</a>
-        <a href="carrito.html">Carrito</a>
-        <a href="#">Ofertas</a>
-      </nav>
+        <div class="logo">Tienda Virtual</div>
+        <nav class="nav">
+            <a href="index.html" class="active">Productos</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="#">Ofertas</a>
+        </nav>
     </header>
 
     <main class="page">
-      <section class="hero">
-        <div>
-          <p class="tag">Frontend visual</p>
-          <h1>Catálogo de productos</h1>
-          <p class="hero-text">
-            Diseño base para el proyecto de carrito de compras.
-          </p>
-        </div>
-        <a class="btn btn-primary" href="carrito.html">Ver carrito</a>
-      </section>
+        <section class="hero">
+            <div>
+                <p class="tag">Frontend visual</p>
+                <h1>Catálogo de productos</h1>
+                <p class="hero-text">
+                    Diseño base para el proyecto de carrito de compras.
+                </p>
+            </div>
+            <a class="btn btn-primary" href="carrito.html">Ver carrito</a>
+        </section>
 
-      <section class="section-title">
-        <h2>Productos disponibles</h2>
-        <p>Aquí se mostrarán los productos obtenidos desde el backend.</p>
-      </section>
+        <section class="section-title">
+            <h2>Productos disponibles</h2>
+            <p>Aquí se mostrarán los productos obtenidos desde el backend.</p>
+        </section>
 
-      <section class="productos" id="contenedor-productos">
-        <!-- Aquí se insertan los productos con JS -->
-      </section>
+        <section class="productos" id="contenedor-productos">
+            <!-- Aquí se insertan los productos con JS -->
+        </section>
     </main>
 
-    <script src="../CarritoApp/JS/controllers.js"></script>
-    <script src="../CarritoApp/JS/services.js"></script>
-    <script src="../CarritoApp/JS/repository.js"></script>
-  </body>
+    <script src="./JS/app.js"></script>
+</body>
 </html>

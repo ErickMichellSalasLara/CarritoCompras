@@ -1,59 +1,67 @@
-// SERVIDOR CON LA API
-
 const express = require("express");
 const fs = require("fs");
+const path = require("path");
+const cors = require("cors");
 
 const app = express();
 const controller = require("./JS/controllers");
+const dbPath = path.join(__dirname, "db.json");
 
-// RUTAS
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
+
 app.get("/productos", controller.obtenerProductos);
 app.post("/productos", controller.crearProducto);
 app.delete("/productos/:id", controller.eliminarProducto);
 
-// Permitir peticiones desde el navegador (CORS)
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    next();
+app.get("/carrito", (req, res) => {
+  const data = fs.readFileSync(dbPath, "utf-8");
+  const carrito = JSON.parse(data);
+  res.json(carrito.cart);
+});
+
+app.post("/carrito", (req, res) => {
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  data.cart.push(req.body);
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+  res.json(req.body);
+});
+
+app.put("/carrito/:id", (req, res) => {
+  const id = req.params.id;
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+
+  const index = data.cart.findIndex(p => String(p.id) === String(id));
+
+  if (index === -1) {
+    return res.status(404).json({ mensaje: "Producto no encontrado en el carrito" });
+  }
+
+  data.cart[index] = req.body;
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+  res.json(data.cart[index]);
+});
+
+app.delete("/carrito/:id", (req, res) => {
+  const id = req.params.id;
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+
+  const nuevoCarrito = data.cart.filter(p => String(p.id) !== String(id));
+
+  if (nuevoCarrito.length === data.cart.length) {
+    return res.status(404).json({ mensaje: "Producto no encontrado en el carrito" });
+  }
+
+  data.cart = nuevoCarrito;
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+  res.json({ mensaje: "Producto eliminado del carrito" });
 });
 
 app.listen(3000, () => {
-    console.log("Servidor corriendo en puerto 3000");
-});
-
-// GET - Obtener todos los contactos
-app.get("/carrito", (req, res) => {
-    const data = fs.readFileSync("./db.json", "utf-8");
-    res.json({ code: 1, message: "Carrito obtenido", data: JSON.parse(data) });
-});
-
-// POST - Crear un nuevo contacto
-app.post("/contactos", (req, res) => {
-    const data = fs.readFileSync("./db.json", "utf-8");
-    const contactos = JSON.parse(data);
-    contactos.push({
-        id: contactos.length > 0 ? Math.max(...contactos.map(c => c.id)) + 1 : 1,
-        nombre: req.body.nombre,
-        telefono: req.body.telefono
-    });
-    fs.writeFileSync("./db.json", JSON.stringify(contactos));
-    res.status(201).json({ code: 1, message: "Contacto creado" });
-});
-
-
-// DELETE - Eliminar un contacto
-app.delete("/contactos/:id", (req, res) => {
-    const data = fs.readFileSync("./db.json", "utf-8");
-    const contactos = JSON.parse(data);
-    const contacto = contactos.find((c) => c.id === parseInt(req.params.id));
-    if (contacto) {
-        contactos.splice(contactos.indexOf(contacto), 1);
-        fs.writeFileSync("./db.json", JSON.stringify(contactos));
-        res.json({ code: 1, message: "Contacto eliminado" });
-    } else {
-        res.status(404).json({ code: 0, message: "Contacto no encontrado" });
-    }
+  console.log("Servidor corriendo en puerto 3000");
 });
