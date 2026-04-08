@@ -4,6 +4,13 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
+const controller = require("./JS/controllers");
+
+// RUTAS
+app.use(express.json());
+app.get("/productos", controller.obtenerProductos);
+app.post("/productos", controller.crearProducto);
+app.delete("/productos/:id", controller.eliminarProducto);
 
 // Permitir peticiones desde el navegador (CORS)
 app.use((req, res, next) => {
@@ -13,7 +20,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.json());
+app.listen(3000, () => {
+    console.log("Servidor corriendo en puerto 3000");
+});
 
 // GET - Obtener todos los contactos
 app.get("/carrito", (req, res) => {
@@ -34,6 +43,7 @@ app.post("/contactos", (req, res) => {
     res.status(201).json({ code: 1, message: "Contacto creado" });
 });
 
+
 // DELETE - Eliminar un contacto
 app.delete("/contactos/:id", (req, res) => {
     const data = fs.readFileSync("./db.json", "utf-8");
@@ -46,8 +56,4 @@ app.delete("/contactos/:id", (req, res) => {
     } else {
         res.status(404).json({ code: 0, message: "Contacto no encontrado" });
     }
-});
-
-app.listen(3000, () => {
-    console.log("API corriendo en http://localhost:3000");
 });
