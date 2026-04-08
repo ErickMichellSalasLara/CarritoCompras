@@ -55,5 +55,16 @@
       "categoria": "Audio"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 2,
+      "nombre": "Teclado mecánico",
+      "descripcion": "Ideal para programar, estudiar y jugar.",
+      "precio": 1200,
+      "imagen": "https://media.istockphoto.com/id/1336345692/es/foto/teclado-mec%C3%A1nico-para-juegos-con-retroiluminaci%C3%B3n-vista-superior-teclado-para-juegos-con.jpg?s=1024x1024&w=is&k=20&c=BBY3WE3Y-fUlWwlQ9TOTlr1o_vcCCgW1T5fjzgm2ibA=",
+      "stock": 8,
+      "categoria": "Accesorios",
+      "cantidad": 1
+    }
+  ]
 }
