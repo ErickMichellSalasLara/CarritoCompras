@@ -6,7 +6,7 @@
       "descripcion": "Sonido envolvente, batería de larga duración y diseño moderno.",
       "precio": 850,
       "imagen": "https://media.istockphoto.com/id/1246138278/es/foto/auriculares-inal%C3%A1mbricos-blancos-met%C3%A1licos-plateados-en-el-aire-aislados-sobre-fondo-blanco.jpg?s=1024x1024&w=is&k=20&c=XfKSfE3Bm3vy_ilI_ESbVIRZ-LyKkuwVaimYh_wyx9s=",
-      "stock": 10,
+      "stock": 11,
       "categoria": "Audio"
     },
     {
@@ -53,21 +53,6 @@
       "imagen": "https://media.istockphoto.com/id/1305489264/es/foto/altavoz-inal%C3%A1mbrico-port%C3%A1til-rojo-aislado-sobre-fondo-blanco-altavoz-m%C3%B3vil-color-rojo-con.jpg?s=1024x1024&w=is&k=20&c=-cEkQxymLbVDUOQicesX_JwdJOdvPFEUcqg0kz7NFmU=",
       "stock": 12,
       "categoria": "Audio"
-    },
-    {
-      "id": 1775683061343,
-      "nombre": "Telefono",
-      "precio": 1900
-    },
-    {
-      "id": 1775683900353,
-      "nombre": "Control remoto",
-      "precio": 250
-    },
-    {
-      "id": 1775684206071,
-      "nombre": "Control remoto 2",
-      "precio": 140
     }
   ],
   "cart": []
