@@ -289,3 +289,87 @@ body {
     height: 220px;
   }
 }
+
+
+.nav-btn {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.panel-formulario {
+  margin: 20px 0 30px;
+  padding: 24px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.oculto {
+  display: none;
+}
+
+#form-producto {
+  display: grid;
+  gap: 12px;
+}
+
+#form-producto input {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+}
+
+#form-producto input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+#form-producto button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#form-producto button:hover {
+  background: #1d4ed8;
+}
+
+#mensaje {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #16a34a;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav a,
+.nav-btn {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav a.active,
+.nav-btn.active {
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 4px;
+}

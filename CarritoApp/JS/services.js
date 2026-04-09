@@ -1,6 +1,7 @@
 // Nota para Erick del futuro:
 // En esta parte se decidira que es lo que esta permitido y que no y el como los datos se van transformando.
 // Osease las validaciones y la logica detrás del backend
+
 const repo = require("./repository");
 
 // Creamos una funcion que se encargara de hacer los productos de compra POST
@@ -11,7 +12,7 @@ function crearProducto(data) {
         throw new Error("Nombre obligatorio");
     }
 
-    //Se valida que lo que se ingrese deba ser un numero
+    // Se valida que lo que se ingrese deba ser un numero
     if (isNaN(data.precio)) {
         throw new Error("Precio inválido");
     }
@@ -29,7 +30,7 @@ function crearProducto(data) {
         descripcion: data.descripcion || "",
         precio: Number(data.precio),
         imagen: data.imagen || "",
-        stock: data.stock || 0,
+        stock: Number(data.stock) || 0,
         categoria: data.categoria || "General"
     };
 
@@ -37,17 +38,17 @@ function crearProducto(data) {
     return repo.guardar(producto);
 }
 
-//Se obtiene los productos GET
+// Se obtiene los productos GET
 function obtenerProductos() {
     return repo.obtenerTodos();
 }
 
-//Se actualiza el producto PUT
+// Se actualiza el producto PUT
 function actualizarProducto(id, data) {
     const productos = repo.obtenerTodos();
 
     const index = productos.findIndex(p => p.id == id);
-    //No se puede actualizar a -1 pedido
+    // No se puede actualizar a -1 pedido
     if (index === -1) {
         throw new Error("Producto no encontrado");
     }
@@ -61,11 +62,11 @@ function actualizarProducto(id, data) {
     return repo.guardarTodos(productos);
 }
 
-//Se elimina el producto DELETE
+// Se elimina el producto DELETE
 function eliminarProducto(id) {
-    //Se obtienen los productos
+    // Se obtienen los productos
     const productos = repo.obtenerTodos();
-    //Se filtran por el id
+    // Se filtran por el id
     const nuevos = productos.filter(p => p.id != id);
 
     if (productos.length === nuevos.length) {

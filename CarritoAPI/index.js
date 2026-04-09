@@ -19,6 +19,8 @@ app.get("/productos", controller.obtenerProductos);
 app.post("/productos", controller.crearProducto);
 app.delete("/productos/:id", controller.eliminarProducto);
 
+
+
 app.get("/carrito", (req, res) => {
   const data = fs.readFileSync(dbPath, "utf-8");
   const carrito = JSON.parse(data);
