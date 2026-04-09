@@ -6,7 +6,7 @@
       "descripcion": "Sonido envolvente, batería de larga duración y diseño moderno.",
       "precio": 850,
       "imagen": "https://media.istockphoto.com/id/1246138278/es/foto/auriculares-inal%C3%A1mbricos-blancos-met%C3%A1licos-plateados-en-el-aire-aislados-sobre-fondo-blanco.jpg?s=1024x1024&w=is&k=20&c=XfKSfE3Bm3vy_ilI_ESbVIRZ-LyKkuwVaimYh_wyx9s=",
-      "stock": 10,
+      "stock": 11,
       "categoria": "Audio"
     },
     {
@@ -55,22 +55,5 @@
       "categoria": "Audio"
     }
   ],
-  "cart": [
-    {
-      "id": 1,
-      "productId": 1,
-      "nombre": "Audífonos inalámbricos",
-      "precio": 850,
-      "imagen": "https://media.istockphoto.com/id/1246138278/es/foto/auriculares-inal%C3%A1mbricos-blancos-met%C3%A1licos-plateados-en-el-aire-aislados-sobre-fondo-blanco.jpg?s=1024x1024&w=is&k=20&c=XfKSfE3Bm3vy_ilI_ESbVIRZ-LyKkuwVaimYh_wyx9s=",
-      "cantidad": 1
-    },
-    {
-      "id": 2,
-      "productId": 3,
-      "nombre": "Mouse gamer",
-      "precio": 650,
-      "imagen": "https://media.istockphoto.com/id/960058256/es/foto/rat%C3%B3n-para-juegos-aislado-sobre-fondo-blanco.jpg?s=1024x1024&w=is&k=20&c=SRA19eG-pm8zWELnh-HqjM4Q7WfgPbXura1YrqZueaA=",
-      "cantidad": 2
-    }
-  ]
+  "cart": []
 }
